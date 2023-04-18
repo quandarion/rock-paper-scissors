@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+
+  </head>
+<body>
+    
+    <button onclick="game()">Start The Game</button>
+    <button onclick="roundOne()">Start The Round</button>
+    
+
+    <p class="l"></p>
+</body>
+<script>
+const win = "YOU WON"
+const tie = "Tie"
+const loss = "YOU SUCK"
+let playerScore=1
+let computerScore=1
+let l = document.querySelector('.l')
+function game() {
+    roundOne();
+    roundOne();
+    roundOne();
+    roundOne();
+    roundOne();
+   console.log(computerScore, playerScore)
+   if (computerScore===playerScore) {
+    l.textContent="You Tied! Reload to try to Win!"
+   } else if (computerScore>playerScore) {
+      l.textContent="You Lost! Reload to try to win next time!"
+   } else {
+    l.textContent="You Won! Reload to try to win again!"
+   }
+}
+    function roundOne(playerlog, computerlog) {
+     
+        let choices = ["rock","paper","scizzors"];
+   let answer = Math.floor(Math.random()*choices.length);
+   let computer
+   computer = choices[answer]
+   let playerChoice=prompt("rock, paper, or scizzors?").toLowerCase()
+     console.log(playerChoice)
+     playerlog=playerChoice
+     computerlog= computer
+      console.log(playerlog)
+      console.log(computerlog)
+      
+        if(playerlog===undefined){
+           l.textContent="error"
+          }  else if(playerlog===computer) {
+           
+          }  else if(playerlog=="scizzors"&& computerlog=="rock") {
+           
+          computerScore++
+        } else if(playerlog=="rock"&& computerlog=="paper") {
+          
+            computerScore++
+        } else if(playerlog=="paper"&& computerlog=="scizzors") {
+           
+            computerScore++
+        } else if(playerlog=="scizzors"&& computerlog=="paper") {
+          
+           playerScore++
+        } else if(playerlog=="paper"&& computerlog=="rock") {
+          
+            playerScore++
+        } else if(playerlog=="rock"&&computerlog=="scizzors") {
+           
+            playerScore++
+        }
+          console.log(playerlog)
+          
+        }
+
+
+
+</script>
+</html>
